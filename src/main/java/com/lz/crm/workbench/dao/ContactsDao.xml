@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lz.crm.workbench.dao.ContactsDao">
+    <select id="contactsPageList" resultType="Contacts">
+        select
+        *
+        from tbl_contacts
+        <where>
+            <if test="searchOwner!='' and searchOwner!=null">
+               fullname like '%' #{searchOwner} '%'
+            </if>
+        </where>
+        order by editTime desc
+        limit #{pageNum},#{pageSize}
+
+    </select>
+    <select id="ContactsListTost" resultType="int">
+        select
+        count(*)
+        from tbl_contacts
+        <where>
+            <if test="searchOwner!='' and searchOwner!=null">
+                fullname like '%' #{searchOwner} '%'
+            </if>
+        </where>
+
+
+    </select>
+ <insert id="saveContacts">
+     insert into tbl_contacts values (
+#{id},
+#{owner},
+#{source},
+#{customerId},
+#{fullname},
+#{appellation},
+#{email},
+#{mphone},
+#{job},
+#{birth},
+#{createBy},
+#{createTime},
+#{editBy},
+#{editTime},
+#{description},
+#{contactSummary},
+#{nextContactTime},
+#{address}
+)
+ </insert>
+</mapper>

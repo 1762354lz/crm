@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lz.crm.workbench.dao.CustomerDao">
+ <select id="getCustomerOne" resultType="Customer">
+     select * from tbl_customer where name=#{company}
+ </select>
+    <insert id="saveCostumer">
+        insert into tbl_customer values (
+#{id},
+#{owner},
+#{name},
+#{website},
+#{phone},
+#{createBy},
+#{createTime},
+#{editBy},
+#{editTime},
+#{contactSummary},
+#{nextContactTime},
+#{description},
+#{address}
+)
+
+    </insert>
+</mapper>
