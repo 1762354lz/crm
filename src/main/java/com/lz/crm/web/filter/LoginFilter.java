@@ -19,7 +19,7 @@ public class LoginFilter implements Filter {
 
         String path = request.getServletPath();
 
-        if ("/login.jsp".equals(path) || "/settings/user/login.do".equals(path))
+        if ("/settings/user/activeUser.do".equals(path)||"/login.jsp".equals(path) || "/settings/user/login.do".equals(path)||"/workbench/regist/register.jsp".equals(path)||"/settings/user/registUser.do".equals(path))
 
             filterChain.doFilter(request, response);
         else {

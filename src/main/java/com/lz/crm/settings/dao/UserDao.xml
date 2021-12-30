@@ -11,10 +11,10 @@
         select * from tbl_user
     </select>
     <insert id="save">
-        insert into tbl_user(id,username,loginPwd,name,birthday,sex,telephone,email,status)
+        insert into tbl_user(id,loginAct,loginPwd,name,birthday,sex,telephone,email,status)
     values(
 #{id},
-#{username},
+#{loginAct},
 #{loginPwd},
 #{name},
 #{birthday},
@@ -25,7 +25,7 @@
 )
     </insert>
     <select id="get" resultType="User">
-        select * from tbl_user where username=#{username}
+        select * from tbl_user where loginAct=#{loginAct}
     </select>
     <update id="update">
         update tbl_user set status="Y" where id=#{id}

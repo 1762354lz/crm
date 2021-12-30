@@ -148,6 +148,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                 if (checkUsername() && checkPassword() && checkEmail() && checkName()
                     && checkTelephone() && checkBirthday()) {
                     // 校验通过,发送ajax请求，提交表单的数据
+                    alert("请去邮箱激活")
                     $.post("settings/user/registUser.do", $(this).serialize(), function (data) {
                         // 处理服务器响应的数据  data  {flag:true,errorMsg:"注册失败"}
                         if (data.flag) {
@@ -199,7 +200,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             <label for="username">用户名</label>
                         </td>
                         <td class="td_right">
-                            <input type="text" id="username" name="username" placeholder="请输入账号">
+                            <input type="text" id="username" name="loginAct" placeholder="请输入账号">
                         </td>
                     </tr>
                     <tr>
@@ -207,7 +208,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
                             <label for="password">密码</label>
                         </td>
                         <td class="td_right">
-                            <input type="text" id="password" name="password" placeholder="请输入密码">
+                            <input type="text" id="password" name="loginPwd" placeholder="请输入密码">
                         </td>
                     </tr>
                     <tr>
@@ -280,8 +281,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
         </div>
         <div class="rg_form_right">
             <p>
-                已有账号？
-                <a href="login.html">立即登录</a>
+                <a href="login.html"></a>
             </p>
         </div>
     </div>

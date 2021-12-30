@@ -19,7 +19,7 @@ public class SendEmailThread implements Runnable {
     @Override
     public void run() {
         System.out.println("~~~"+user.getId());
-        String content="<a href='http://localhost:8081/one_war_exploded/settings/user/activeUser.do?code="+user.getId()+"'>点击激活</a>";
+        String content="<a href='http://localhost:8080/crm/settings/user/activeUser.do?code="+user.getId()+"'>点击激活</a>";
         sendEmail(user.getEmail(),"激活",content);
 }
 public void sendEmail(String recipient,String subject,String content){
